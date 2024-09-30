@@ -14,18 +14,18 @@ struct SearchView: View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 16) {
-                    ForEach(0...15, id: \.self) { user in
+                    ForEach(User.MOCK_USERS) { user in
                         HStack {
-                            Image("batman-2")
+                            Image(user.profileImageUrl ?? "")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 40, height: 40)
                                 .clipShape(Circle())
                             
                             VStack(alignment: .leading) {
-                                Text("batman")
+                                Text(user.username)
                                 
-                                Text("Bruce Wayne")
+                                Text(user.fullName ?? "")
                             }
                             .font(.footnote)
                             
